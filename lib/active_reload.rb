@@ -45,7 +45,7 @@ module ActiveReload
   end
 
   def self.replace_proc(&new)
-    replaced = ActionDispatch::Callbacks.instance_variable_get(:@_call_callbacks).pop
+    replaced = ActionDispatch::Callbacks._call_callbacks.pop
     ActionDispatch::Callbacks.before(&new)
   end
 
